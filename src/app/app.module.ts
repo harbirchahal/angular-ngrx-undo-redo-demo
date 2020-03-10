@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './shared';
+import { TodosModule } from './+todos';
 import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     MaterialModule,
-    FormsModule,
+    TodosModule,
   ],
   declarations: [
     AppComponent,
