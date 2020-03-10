@@ -2,8 +2,10 @@
   display: block;
 }
 
-mat-card-subtitle {
+mat-card-title {
   display: flex;
   justify-content: center;
-  font-size: 1.5rem;
+  font-family: monospace;
+  font-weight: 400;
+  color: rgb(155, 155, 155);
 }

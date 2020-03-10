@@ -1,5 +1,9 @@
 <mat-card>
-  <mat-card-subtitle>
+  <mat-card-title>
     todos
-  </mat-card-subtitle>
+  </mat-card-title>
+  <mat-card-content>
+    <todo-input></todo-input>
+    <todo-list [todos]="todos"></todo-list>
+  </mat-card-content>
 </mat-card>
