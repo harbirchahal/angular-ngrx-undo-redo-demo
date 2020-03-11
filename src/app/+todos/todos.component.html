@@ -3,7 +3,11 @@
     todos
   </mat-card-title>
   <mat-card-content>
-    <todo-input></todo-input>
-    <todo-list [todos]="todos"></todo-list>
+    <todo-input (add)="addTitle($event)">
+    </todo-input>
+    <todo-list [todos]="todos$ | async"
+              (update)="updateTodo($event)"
+              (remove)="deleteTodo($event)">
+    </todo-list>
   </mat-card-content>
 </mat-card>

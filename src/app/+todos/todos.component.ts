@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Todo } from './model';
+import * as todoStore from './store';
 
 @Component({
   selector: 'todos',
@@ -7,19 +10,19 @@ import { Todo } from './model';
   styleUrls: [ './todos.component.css' ]
 })
 export class TodosComponent  {
-  todos: Todo[] = [
-    { id: 1, title: 'Lorem', completed: false },
-    { id: 2, title: 'Ipsum', completed: true }
-  ];
+  todos$: Observable<Todo[]> = this.store.select(todoStore.selectAllTodos);
 
-  constructor() { }
+  constructor(private store: Store<todoStore.TodoState>) { }
 
   addTitle(title: string) {
+    this.store.dispatch(todoStore.addTitle({ title }));
   }
 
-  toggleTodo(todo: Todo) {
+  updateTodo(todo: Todo) {
+    this.store.dispatch(todoStore.updateTodo({ todo }));
   }
 
   deleteTodo(todo: Todo) {
+    this.store.dispatch(todoStore.deleteTodo({ todo }));
   }
 }

@@ -18,6 +18,7 @@ export class TodoInputComponent {
     if (title) {
       this.add.emit(title);
     }
+    this.title = '';
   }
 
 }

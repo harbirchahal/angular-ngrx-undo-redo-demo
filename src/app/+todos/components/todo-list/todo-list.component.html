@@ -2,7 +2,7 @@
   <mat-list-item *ngFor="let todo of todos">
     <div class="todo-item">
       <mat-checkbox [checked]="todo.completed"
-                    (change)="toggleTodo(todo)">
+                    (change)="updateTodo(todo)">
         {{ todo.title }}
       </mat-checkbox>
       <button class="todo-delete" mat-icon-button

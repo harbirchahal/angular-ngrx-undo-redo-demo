@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { Todo } from '../model';
-import { addTodo, toggleTodo, deleteTodo } from './todo.actions';
+import { addTodo, updateTodo, deleteTodo } from './todo.actions';
 import { initialState, todoAdapter, TodoState } from './todo.state';
 
 const reducer = createReducer(
@@ -8,13 +8,8 @@ const reducer = createReducer(
   on(addTodo, (state, { todo }) => {
     return todoAdapter.addOne(todo, state);
   }),
-  on(toggleTodo, (state, { todo }) => {
-    const sTodo = state.entities[todo.id];
-    const uTodo = {
-      ...sTodo,
-      completed: !sTodo.completed
-    };
-    return todoAdapter.updateOne(uTodo, state);
+  on(updateTodo, (state, { todo }) => {
+    return todoAdapter.updateOne(todo, state);
   }),
   on(deleteTodo, (state, { todo }) => {
     return todoAdapter.removeOne(todo.id, state);
