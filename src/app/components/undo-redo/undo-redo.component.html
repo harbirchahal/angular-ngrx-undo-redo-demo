@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button
+            [disabled]="noUndo$ | async"
+            (click)="doUndo()">
+      Undo
+    </button>
+    <button mat-raised-button
+            [disabled]="noRedo$ | async"
+            (click)="doRedo()">
+      Redo
+    </button>
+  </mat-card-content>
+</mat-card>

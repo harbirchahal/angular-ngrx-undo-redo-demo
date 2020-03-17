@@ -4,8 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './shared';
 import { AppStoreModule } from './store';
-import { TodosModule } from './+todos';
+import { TodosModule } from './+todos'; // Feature
 import { AppComponent } from './app.component';
+import { UndoRedoComponent } from './components/undo-redo/undo-redo.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
   ],
   declarations: [
     AppComponent,
+    UndoRedoComponent,
   ],
   bootstrap: [ AppComponent ]
 })
