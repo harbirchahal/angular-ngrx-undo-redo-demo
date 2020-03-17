@@ -6,8 +6,7 @@ import { MaterialModule } from './shared';
 import { AppStoreModule } from './store';
 import { TodosModule } from './+todos'; // Feature
 import { AppComponent } from './app.component';
-import { UndoRedoComponent } from './components/undo-redo/undo-redo.component';
-import { HistoryComponent } from './components/history/history.component';
+import { UndoRedoComponent, HistoryComponent } from './components';
 
 @NgModule({
   imports: [
