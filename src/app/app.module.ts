@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { MaterialModule } from './shared';
+import { AppStoreModule } from './store';
 import { TodosModule } from './+todos';
 import { AppComponent } from './app.component';
 
@@ -14,9 +12,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument(),
+    AppStoreModule,
     TodosModule,
   ],
   declarations: [
