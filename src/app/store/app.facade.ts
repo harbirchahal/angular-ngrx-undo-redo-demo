@@ -6,7 +6,9 @@ import { map } from 'rxjs/operators';
 import { AppState } from './app.state';
 import { history$ } from './app-history.reducer';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppFacade {
   readonly canUndo$: Observable<boolean> = history$.pipe(
     map(history => !!history.past.length));

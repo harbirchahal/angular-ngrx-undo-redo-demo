@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Todo } from '../model';
+import { undoable } from '../../store';
 
 export const addTitle = createAction(
   '[Todos] Add Title',
@@ -8,15 +9,15 @@ export const addTitle = createAction(
 
 export const addTodo = createAction(
   '[Todos] Add Todo',
-  props<{todo: Todo}>()
+  undoable<{todo: Todo}>()
 );
 
 export const updateTodo = createAction(
   '[Todos] Update Todo',
-  props<{todo: Todo}>()
+  undoable<{todo: Todo}>()
 );
 
 export const deleteTodo = createAction(
   '[Todos] Delete Todo',
-  props<{todo: Todo}>()
+  undoable<{todo: Todo}>()
 );
