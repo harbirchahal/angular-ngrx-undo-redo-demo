@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { AppFacade, undo, redo } from '../../store';
 
 @Component({
   selector: 'undo-redo',
   templateUrl: './undo-redo.component.html',
-  styleUrls: ['./undo-redo.component.css']
+  styleUrls: ['./undo-redo.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UndoRedoComponent implements OnInit {
   readonly noUndo$ = this.facade.canUndo$.pipe(map(can => !can));

@@ -1,0 +1,32 @@
+<ng-container *ngIf="undoredo$ | async as history">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        History
+      </mat-expansion-panel-header>
+
+      <ng-template matExpansionPanelContent>
+        <p>Past:</p>
+        <ul class="past">
+          <li *ngFor="let state of history.past">
+            {{ state | json }}
+          </li>
+        </ul>
+        <mat-divider></mat-divider>
+        <p>Present:</p>
+        <ul class="present">
+          <li>
+            {{ history.present | json }}
+          </li>
+        </ul>
+        <mat-divider></mat-divider>
+        <p>Future:</p>
+        <ul class="future">
+          <li *ngFor="let state of history.future">
+            {{ state | json }}
+          </li>
+        </ul>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-container>
