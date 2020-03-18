@@ -7,14 +7,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from '@app/shared';
 import { TodosComponent } from './todos.component';
 import { TodoInputComponent, TodoListComponent } from './components';
-import { FEATURE_KEY, TodoEffects, todoReducer, initialState } from './store';
+import { FEATURE_KEY, TodoEffects, todoReducer } from './store';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     MaterialModule,
-    StoreModule.forFeature(FEATURE_KEY, todoReducer, { initialState }),
+    StoreModule.forFeature(FEATURE_KEY, todoReducer),
     EffectsModule.forFeature([TodoEffects]),
   ],
   declarations: [
