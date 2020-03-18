@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { AppFacade, undo, redo } from '../../store';
 
@@ -11,6 +11,15 @@ import { AppFacade, undo, redo } from '../../store';
 export class UndoRedoComponent implements OnInit {
   readonly noUndo$ = this.facade.canUndo$.pipe(map(can => !can));
   readonly noRedo$ = this.facade.canRedo$.pipe(map(can => !can));
+
+  @HostListener('window:keydown', ['$event'])
+  keyDown(e: KeyboardEvent) {
+    if (e.ctrlKey && e.code === 'KeyZ') {
+      this.doUndo();
+    } else if (e.ctrlKey && e.code === 'KeyY') {
+      this.doRedo();
+    }
+  }
 
   constructor(readonly facade: AppFacade) { }
 

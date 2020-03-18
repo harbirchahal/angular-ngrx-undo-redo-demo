@@ -30,6 +30,9 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
 
     switch (action.type) {
       case undo.type: {
+        if (!past.length) {
+          return state;
+        }
         // use first past state as next present
         const previous = past[0];
         // ... and remove from past
@@ -43,6 +46,9 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
         return previous;
       }
       case redo.type: {
+        if (!future.length) {
+          return state;
+        }
         // use first future state as next present
         const next = future[0];
         // ... and remove from future
@@ -58,6 +64,9 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
       default: {
         // derive next state
         const newPresent = reducer(state, action);
+        if (present === newPresent) {
+          return state;
+        }
         // update undoable history
         if ((action as Undoable).undoable) {
           historySub.next({
