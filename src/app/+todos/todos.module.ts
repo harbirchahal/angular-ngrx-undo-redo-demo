@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { MaterialModule } from '@app/shared';
+import { MaterialModule } from '../shared';
 import { TodosComponent } from './todos.component';
 import { TodoInputComponent, TodoListComponent } from './components';
 import { FEATURE_KEY, TodoEffects, todoReducer } from './store';

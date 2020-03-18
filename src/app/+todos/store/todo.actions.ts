@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { undoable } from '@app/store';
+import { undoable } from '../../store';
 import { Todo } from '../model';
 
 export const addTitle = createAction(
