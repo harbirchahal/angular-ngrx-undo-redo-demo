@@ -11,13 +11,11 @@ export interface History {
   future: AppState[];
 }
 
-const initHistory = {
+const historySub = new BehaviorSubject<History>({
   past: [],
   present: null,
   future: []
-}
-
-const historySub = new BehaviorSubject<History>(initHistory);
+});
 
 export const history$: Observable<History> = historySub.asObservable();
 
@@ -60,11 +58,11 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
       default: {
         // derive next state
         const newPresent = reducer(state, action);
+        // update undoable history
         if ((action as Undoable).undoable) {
-          const history = historySub.value;
           historySub.next({
             // push previous present into past for undo
-            past: [history.present, ...history.past],
+            past: [present, ...past],
             present: cloneDeep(newPresent),
             future: [] // clear future
           });

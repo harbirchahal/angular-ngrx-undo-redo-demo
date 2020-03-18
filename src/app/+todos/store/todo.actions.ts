@@ -7,17 +7,17 @@ export const addTitle = createAction(
   props<{title: string}>()
 );
 
-export const addTodo = createAction(
+export const addTodo = undoable(createAction(
   '[Todos] Add Todo',
-  undoable<{todo: Todo}>()
-);
+  props<{todo: Todo}>()
+));
 
-export const updateTodo = createAction(
+export const updateTodo = undoable(createAction(
   '[Todos] Update Todo',
-  undoable<{todo: Todo}>()
-);
+  props<{todo: Todo}>()
+));
 
-export const deleteTodo = createAction(
+export const deleteTodo = undoable(createAction(
   '[Todos] Delete Todo',
-  undoable<{todo: Todo}>()
-);
+  props<{todo: Todo}>()
+));
