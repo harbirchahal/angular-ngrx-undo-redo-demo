@@ -1,7 +1,16 @@
 {
-  "name": "angular",
+  "name": "angular-ngrx-undo-redo-demo",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --open",
+    "build": "ng build --prod",
+    "build:aot": "ng build --prod --aot",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
   "dependencies": {
     "@angular/animations": "~8.0.0",
     "@angular/cdk": "~8.0.0",
@@ -22,15 +31,6 @@
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
-  },
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve --open",
-    "build": "ng build --prod",
-    "build:aot": "ng build --prod --aot",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
