@@ -10,7 +10,11 @@ const reducer = createReducer(
     return todoAdapter.addOne(todo, state);
   }),
   on(updateTodo, (state, { todo }) => {
-    return todoAdapter.updateOne(todo as unknown as Update<Todo>, state);
+    const update: Update<Todo> = {
+      id: todo.id,
+      changes: { completed: todo.completed }
+    };
+    return todoAdapter.updateOne(update, state);
   }),
   on(deleteTodo, (state, { todo }) => {
     return todoAdapter.removeOne(todo.id, state);
