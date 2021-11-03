@@ -39,7 +39,7 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
         const newPast = past.slice(1);
         historySub.next({
           past: newPast,
-          present: previous,
+          present: cloneDeep(previous),
           // push present into future for redo
           future: [present, ...future]
         });
@@ -56,7 +56,7 @@ export function historyReducer(reducer: ActionReducer<AppState>) {
         historySub.next({
           // push present into past for undo
           past: [present, ...past],
-          present: next,
+          present: cloneDeep(next),
           future: newFuture
         });
         return next;
