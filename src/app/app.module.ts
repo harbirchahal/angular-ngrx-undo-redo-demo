@@ -6,7 +6,7 @@ import { MaterialModule } from './shared';
 import { AppStoreModule } from './store';
 import { TodosModule } from './+todos'; // Feature
 import { AppComponent } from './app.component';
-import { UndoRedoComponent, HistoryComponent } from './components';
+import { UndoRedoComponent, HistoryComponent, ExtractTodosPipe } from './components';
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { UndoRedoComponent, HistoryComponent } from './components';
     AppComponent,
     UndoRedoComponent,
     HistoryComponent,
+    ExtractTodosPipe,
   ],
   bootstrap: [ AppComponent ]
 })
