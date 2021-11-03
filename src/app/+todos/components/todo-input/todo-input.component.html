@@ -1,4 +1,4 @@
 <mat-form-field>
-  <input matInput [(ngModel)]="title">
+  <input matInput [(ngModel)]="title" (keydown.enter)="addTitle()">
 </mat-form-field>
 <button mat-stroked-button (click)="addTitle()">Add</button>
